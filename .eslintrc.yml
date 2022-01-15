@@ -1,0 +1,21 @@
+env:
+  browser: true
+  es2021: true
+  jest: true
+extends:
+  - plugin:react/recommended
+  - airbnb
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: 13
+  sourceType: module
+plugins:
+  - react
+rules: {
+  "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+  "import/prefer-default-export": off,
+  "import/no-extraneous-dependencies": off,
+  # prevent can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  "react/no-unescaped-entities": 0
+}
