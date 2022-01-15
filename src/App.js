@@ -1,14 +1,15 @@
 import React from 'react';
-import { ExpenseItem } from './components';
+import { ExpenseItem, Card } from './components';
 import expensesData from './expensesData';
 
 function App() {
   // console.log('expensesData', expensesData);
   const expensesList = () => expensesData.map((exp) => <ExpenseItem key={exp.id} props={exp} />);
+  console.log(expensesList());
   return (
-    <div className="expenses">
+    <Card className="expenses">
       {expensesList()}
-    </div>
+    </Card>
   );
 }
 

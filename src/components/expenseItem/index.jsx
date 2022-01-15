@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ExpenseDate } from '../expenseDate';
+import { Card } from '../card';
 import './index.scss';
 
 export function ExpenseItem({ props }) {
   const { title, amount, date } = props;
 
   return (
-    <div className="expense-item">
+    <Card className="expense-item">
       <ExpenseDate date={date} />
       <div className="expense-item__description">
         <h2>{title}</h2>
@@ -15,7 +16,8 @@ export function ExpenseItem({ props }) {
           {amount}
         </div>
       </div>
-    </div>
+      <button type="button" onClick={() => { console.log('click'); }}>Click me</button>
+    </Card>
   );
 }
 
