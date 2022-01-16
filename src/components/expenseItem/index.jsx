@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { ExpenseDate } from '../expenseDate';
 import { Card } from '../card';
 import './index.scss';
 
 export function ExpenseItem({ props }) {
-  const { title, amount, date } = props;
-
+  const { amount, date } = props;
+  const [title, setTitle] = useState(props.title);
+  const btnClicked = () => {
+    setTitle('Hello');
+  };
   return (
     <Card className="expense-item">
       <ExpenseDate date={date} />
@@ -16,7 +19,7 @@ export function ExpenseItem({ props }) {
           {amount}
         </div>
       </div>
-      <button type="button" onClick={() => { console.log('click'); }}>Click me</button>
+      <button type="button" onClick={() => btnClicked()}>Click me</button>
     </Card>
   );
 }
