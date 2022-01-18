@@ -16,6 +16,7 @@ rules: {
   "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
   "import/prefer-default-export": off,
   "import/no-extraneous-dependencies": off,
+  "label-has-associated-control": off,
   # prevent can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
   "react/no-unescaped-entities": 0
 }
