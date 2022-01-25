@@ -18,5 +18,6 @@ rules: {
   "import/no-extraneous-dependencies": off,
   "label-has-associated-control": off,
   # prevent can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
-  "react/no-unescaped-entities": 0
+  "react/no-unescaped-entities": 0,
+  "jsx-a11y/label-has-associated-control": off,
 }
