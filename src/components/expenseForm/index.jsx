@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import './index.scss';
+import PropTypes from 'prop-types';
 
-export function ExpenseForm() {
+export function ExpenseForm(props) {
+  const { onSaveExpenseData } = props;
   const [inputTitle, setInputTitle] = useState('');
   const [inputAmount, setInputAmount] = useState('');
   const [inputDate, setInputDate] = useState('');
+
   const titleChangeHandler = (event) => {
     setInputTitle(event.target.value);
   };
@@ -21,10 +24,10 @@ export function ExpenseForm() {
       amount: inputAmount,
       date: new Date(inputDate),
     };
+    onSaveExpenseData(expenseData);
     setInputAmount('');
     setInputTitle('');
     setInputDate('');
-    console.log('EXp', expenseData);
   };
 
   return (
@@ -49,3 +52,11 @@ export function ExpenseForm() {
     </form>
   );
 }
+
+ExpenseForm.defaultProps = {
+  onSaveExpenseData: () => {},
+};
+
+ExpenseForm.propTypes = {
+  onSaveExpenseData: PropTypes.func,
+};

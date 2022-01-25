@@ -5,9 +5,13 @@ import expensesData from './expensesData';
 function App() {
   // console.log('expensesData', expensesData);
   const expensesList = () => expensesData.map((exp) => <ExpenseItem key={exp.id} props={exp} />);
+  const saveHandler = (expenseData) => {
+    expensesData.push(expenseData);
+    console.log('saveHandler', expensesData);
+  };
   return (
     <div>
-      <NewExpense />
+      <NewExpense saveExpenseHandler={saveHandler} />
       <Card className="expenses">
         {expensesList()}
       </Card>
