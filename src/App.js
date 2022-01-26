@@ -1,5 +1,7 @@
 import React from 'react';
-import { ExpenseItem, Card, NewExpense } from './components';
+import {
+  ExpenseItem, Card, NewExpense, ExpenseFilter,
+} from './components';
 import expensesData from './expensesData';
 
 function App() {
@@ -9,12 +11,18 @@ function App() {
     expensesData.push(expenseData);
     console.log('saveHandler', expensesData);
   };
+  const changeFilterHandler = (selectedValue) => {
+    console.log('Selected Year: ', selectedValue);
+  };
   return (
     <div>
       <NewExpense saveExpenseHandler={saveHandler} />
-      <Card className="expenses">
-        {expensesList()}
-      </Card>
+      <div>
+        <Card className="expenses">
+          <ExpenseFilter onChangeFilter={changeFilterHandler} />
+          {expensesList()}
+        </Card>
+      </div>
     </div>
   );
 }

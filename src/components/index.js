@@ -4,3 +4,4 @@ export * from './expenseDate';
 export * from './card';
 export * from './expenseForm';
 export * from './newExpense';
+export * from './expenseFilter';
