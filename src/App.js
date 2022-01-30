@@ -1,26 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   ExpenseItem, Card, NewExpense, ExpenseFilter,
 } from './components';
 import expensesData from './expensesData';
 
 function App() {
-  // console.log('expensesData', expensesData);
-  const expensesList = () => expensesData.map((exp) => <ExpenseItem key={exp.id} props={exp} />);
+  const [expensesList, setExpensesList] = useState(expensesData);
+  const [selectedYear, setSelectedYear] = useState('2020');
   const saveHandler = (expenseData) => {
-    expensesData.push(expenseData);
-    console.log('saveHandler', expensesData);
+    setExpensesList([expenseData, ...expensesData]);
   };
   const changeFilterHandler = (selectedValue) => {
-    console.log('Selected Year: ', selectedValue);
+    setSelectedYear(selectedValue);
   };
+  const filteredList = expensesList.filter((exp) => (exp.date.getFullYear()).toString() === selectedYear);
   return (
     <div>
-      <NewExpense saveExpenseHandler={saveHandler} />
+      <NewExpense selectedYear={selectedYear} saveExpenseHandler={saveHandler} />
       <div>
         <Card className="expenses">
           <ExpenseFilter onChangeFilter={changeFilterHandler} />
-          {expensesList()}
+          {filteredList.length
+            ? filteredList.map((exp) => <ExpenseItem key={exp.id} props={exp} />)
+            : <p>No result found</p>}
         </Card>
       </div>
     </div>
