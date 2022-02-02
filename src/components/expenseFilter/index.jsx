@@ -3,7 +3,7 @@ import './index.css';
 import PropTypes from 'prop-types';
 
 export function ExpenseFilter(props) {
-  const { onChangeFilter, selectedYear } = props;
+  const { onChangeFilter } = props;
   const handleChange = (event) => {
     onChangeFilter(event.target.value);
   };
@@ -11,7 +11,8 @@ export function ExpenseFilter(props) {
     <div className="expenses-filter">
       <div className="expenses-filter__control">
         <label>Filter by year</label>
-        <select value={selectedYear} onChange={handleChange}>
+        <select onChange={handleChange}>
+          <option value="">Select a Value</option>
           <option value="2022">2022</option>
           <option value="2021">2021</option>
           <option value="2020">2020</option>

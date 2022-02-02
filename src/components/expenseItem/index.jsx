@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ExpenseDate } from '../expenseDate';
+import { ExpenseDate } from './expenseDate';
 import { Card } from '../card';
 import './index.scss';
 
